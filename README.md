@@ -77,7 +77,7 @@ test“”“ //두 줄 이상의 문자열 표기법
 논리형
 var booleanValue: Boolean = true
 
-#형변환과 배열
+## 형변환과 배열
 형변환(type casting)
 하나의 변수에 지정된 자료형을 호환되는 다른 자료형으로 변환하는 기능이다.
 
