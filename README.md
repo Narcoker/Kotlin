@@ -159,7 +159,9 @@ main(), println() 등 많은 함수들이있다.
 #### 단일 표현식 함수(single-expression function)  
   
 방금 만든 add함수를 마치 변수에 결과값에 할당하듯  
-    fun add(a: Int, b: Int, c: Int) = a+b+c  
+```{.no-highlight} 
+fun add(a: Int, b: Int, c: Int) = a+b+c
+```
 처럼 만들 수 있다.  
 또한 단일 표현식 함수에서 반환형의 타입 추론이 가능해서 반환형을 생략할 수 있다.  
   
@@ -210,8 +212,8 @@ is 연산자도 있는데 이는 자료형이 맞는지 확인하는 연산자�
 여기서 Any 자료형은 모든 자료형을 호환할 수 있는 코틀린의 최상위 자료형이다.  
 등호나 부등호의 사용은 불가능하다!!  
 여러개의 조건이 만족할 경우 맨처음 만나는 조건문의 코드를 실행하고 when문을 탈출한다.  
-  
-fun doWen(a: Any){  
+```{.no-highlight}   
+fun doWhen(a: Any){  
 	var result = when(a) {  
 		1-> “정수입니다.”  
 		“DiMo” -> “디모의 코틀린 강좌입니다.”  
@@ -222,7 +224,7 @@ fun doWen(a: Any){
 		}  
 	println(result)  
 }  
-  
+```  
 이 코드를 실행하면 result에 -> 뒤에 있는 값이 result에 할당된다.  
   
 ## 6. 반복문과 증감연산자  
