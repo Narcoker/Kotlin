@@ -24,7 +24,7 @@ ClassName
 : 함수나 변수 이름을 표기하는 방법으로 첫단어를 제외한 모든 단어는 대문자로 시작한다.  
 functionName  
   
-변수 선언  
+### 변수 선언  
 var : 언제든지 읽기 쓰기가 가능하다.  
 val : 선언시에만 초기화 가능하다 중간에 값을 변경할 수 없다.  
 런타임시 변경되면안되는 변수는 val로 선언하는것이 좋다.  
@@ -49,11 +49,11 @@ var a: Int? = null
 ```
 nullable 변수는 값이 null인 상태로 연산할시 null pointer exception이 발생할 수 있으므로 꼭 필요한 경우에만 사용하는 것이 좋다.  
   
-기본자료형(primitive type)  
+### 기본자료형(primitive type)  
 자바와의 호환을 위해 자바와 거의 동일하다. 
 
 코틀린은 8진수의 표기는 지원하지 않는다.  
-실수표기법
+### 실수표기법
 ```{.no-highlight}
 var doubleValue: Double = 123.5  
 var doubleValueWithExp: Double = 123.5e10  
@@ -62,26 +62,26 @@ var floatValue: Float = 123.5f
 기본적으로 Double형을 사용하며 필요시 지수표기법을 추가해줘도 된다.  
 Float형인 경우 소문자 또는 대문자 f를 붙여줘야한다.  
   
-문자형
+### 문자형
 ```{.no-highlight}
 var charValue: Char = “a’  
 ```  
 코틀린은 유니코드 인코딩 중에 한 방식인 UTF-16 BE로 관리해서 한 문자당 2byte를 차지한다.  
   
-문자열  
+### 문자열  
 ```{.no-highlight}
 var stringValue = “one line string test” // 한줄의 문자열 표기법  
 val multiLineStringValue = “”“ multiline  
 string  
 test“”“ //두 줄 이상의 문자열 표기법  
 ```
-논리형
+### 논리형
 ```{.no-highlight}
 var booleanValue: Boolean = true  
 ```  
   
 ## 3. 형변환과 배열
-형변환(type casting)  
+### 형변환(type casting)  
 하나의 변수에 지정된 자료형을 호환되는 다른 자료형으로 변환하는 기능이다.   
   
 기본자료형들은 자료형 간의 형변환을 지원하기 위해 형변환 함수들을 제공하고 있다.  
@@ -95,7 +95,7 @@ var b: Long = a.toLong()
 명시적 형변환은 변환될 자료형을 개발자가 직접 지정하는 것이고  
 암싲거 형변환은 변수를 할당시 자료형을 지정하지 않아도 자동으로 현 변환이 된다.  
   
-배열  
+### 배열  
 ```{.no-highlight}
 var intArr = arrayOf(1, 2, 3, 4, 5)  
 ```
@@ -117,7 +117,7 @@ intArr[0] = 12
    
 ## 4. 타입추론과 함수  
   
-타입 추론(type inference)  
+### 타입 추론(type inference)  
 : 변수나 함수들을 선언할 때나 연산할때 자료형을 코드에 명시하지 않아도 코틀린이 자료형을 추론해준다.  
   
 ```{.no-highlight} 
@@ -141,7 +141,7 @@ var intArr(: Array<Int>) = arrayOf(1,2,3,4,5)
   
 반드시 특별한 자료형이 아니라면 코틀린의 타입 추론을 이용하여 코드량을 줄일 수 있다.  
   
-함수(function)  
+### 함수(function)  
 함수는 특정한 동작을 하거나 원하는 결과값을 연산하는데 사용되는 기능  
 main(), println() 등 많은 함수들이있다.  
 코틀린에서 함수는 어디에나 둘수 있다.  
@@ -154,7 +154,7 @@ main(), println() 등 많은 함수들이있다.
 	    return a+b+c  
     }  
   
-단일 표현식 함수(single-expression function)  
+#### 단일 표현식 함수(single-expression function)  
   
 방금 만든 add함수를 마치 변수에 결과값에 할당하듯  
     fun add(a: Int, b: Int, c: Int) = a+b+c  
@@ -165,7 +165,8 @@ main(), println() 등 많은 함수들이있다.
 그래야 이후에 배울 함수형 언어라는 코틀린의 중요한 특징을 이해하기 쉽다.  
   
 ## 5. 조건문과 비교연산자
-if 만약 ~ 한다면 if문에 주어진 값이 참이라면 따라오는 구문을 실행하는 기능이다.  
+### if
+만약 ~ 한다면 if문에 주어진 값이 참이라면 따라오는 구문을 실행하는 기능이다.  
   
     fun main(){  
 	    var a = 7  
@@ -192,7 +193,7 @@ if 만약 ~ 한다면 if문에 주어진 값이 참이라면 따라오는 구문
 is 연산자도 있는데 이는 자료형이 맞는지 확인하는 연산자이다. 형변환도 시켜준다.  
     a is Int  
 
-When  
+### When  
 다른 언어에서의 Switch 문과 비슷한 함수이다.  
   
     fun doWhen(a: Any){  
@@ -222,14 +223,13 @@ fun doWen(a: Any){
   
 이 코드를 실행하면 result에 -> 뒤에 있는 값이 result에 할당된다.  
   
-## 6. 반복문과 증감연산자
-  
+## 6. 반복문과 증감연산자  
 반복문에는 두가지 타입이 있다.  
 조건이 참인 경우 반복을 유지하는 조건형 반복문과  
 반복 범위를 정해 반복을 수행하는 범위형 반복문이 있다.  
   
 조건형 반복문은 while과 dowhile이 있다.  
-  
+while  
     fun main(){  
 	    var a = 0  
 	    while(a<5){  
@@ -301,6 +301,7 @@ abced
 ```
    
 ## 7. 흐름제어와 논리연산자  
+### 흐름제어
 return  
 함수를 배울때 언급했듯이 ‘함수를 종료’하고 값을 ‘반환’하는 역할을 한다.  
   
@@ -355,7 +356,7 @@ i : 1, j : 1
 
 따음표 안에서 변수를 출력할때는 변수이름 앞에 $를 붙여주면 변수의 값이 출력된다.  
   
-논리연산자(logical operators)  
+### 논리연산자(logical operators)  
 논리값을 연산하여 새로운 논리값을 도출할 때 쓰는 연산자이다.  
 and 연산 : &&  
 or 연산 : ||  
