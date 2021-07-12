@@ -41,7 +41,7 @@ Local variable(로컬변수) : Scope내에 선언된 변수
     a = 123  
     
 그러나 프로그램에 따라 변수에 값이 할당되지 않았음을 하나의 정보로 사용하는 경우도 있다. 이런 경우 변수형 뒤에 ?를 붙이면 null을 혀용하는 nullable 변수로 선언할 수 있다.  
-    ex)  
+
     var a: Int? = null  
 
 nullable 변수는 값이 null인 상태로 연산할시 null pointer exception이 발생할 수 있으므로 꼭 필요한 경우에만 사용하는 것이 좋다.  
@@ -51,26 +51,26 @@ nullable 변수는 값이 null인 상태로 연산할시 null pointer exception�
 
 코틀린은 8진수의 표기는 지원하지 않는다.  
 실수표기법  
-var doubleValue: Double = 123.5  
-var doubleValueWithExp: Double = 123.5e10  
-var floatValue: Float = 123.5f  
+    var doubleValue: Double = 123.5  
+    var doubleValueWithExp: Double = 123.5e10  
+    var floatValue: Float = 123.5f  
   
 기본적으로 Double형을 사용하며 필요시 지수표기법을 추가해줘도 된다.  
 Float형인 경우 소문자 또는 대문자 f를 붙여줘야한다.  
   
 문자형  
-var charValue: Char = “a’  
+    var charValue: Char = “a’  
   
 코틀린은 유니코드 인코딩 중에 한 방식인 UTF-16 BE로 관리해서 한 문자당 2byte를 차지한다.  
   
 문자열  
-var stringValue = “one line string test” // 한줄의 문자열 표기법  
-val multiLineStringValue = “”“ multiline  
-string  
-test“”“ //두 줄 이상의 문자열 표기법  
+    var stringValue = “one line string test” // 한줄의 문자열 표기법  
+    val multiLineStringValue = “”“ multiline  
+    string  
+    test“”“ //두 줄 이상의 문자열 표기법  
   
 논리형  
-var booleanValue: Boolean = true  
+    var booleanValue: Boolean = true  
   
 ## 3. 형변환과 배열
 형변환(type casting)  
@@ -80,23 +80,23 @@ var booleanValue: Boolean = true
 toByte(), toShort(), toInt(), toLong(), toFloat(), toDouble(), toChar()등이 있는데  
 to<자료형>()의 형태이다.  
   
-var a: Int = 54321
-var b: Long = a.toLong()
+    var a: Int = 54321
+    var b: Long = a.toLong()
 
 전문용어로는 명시적 형변환이라고 한다. 코틀린은 형변환시 발생할 수 있는 오류를 막기 위해 다른 언어들이 지원하는 암시적 형변환은 지원하지 않는다.  
 명시적 형변환은 변환될 자료형을 개발자가 직접 지정하는 것이고  
 암싲거 형변환은 변수를 할당시 자료형을 지정하지 않아도 자동으로 현 변환이 된다.  
   
 배열  
-var intArr = arrayOf(1, 2, 3, 4, 5)  
+    var intArr = arrayOf(1, 2, 3, 4, 5)  
 
 만약 특정한 크기의 공간을 가지는 비어있는 배열을 만들고 싶으면 다음과 같이 선언한다.  
-var nullArr = arrayOfNulls<Int>(5)  
+    var nullArr = arrayOfNulls<Int>(5)  
 이렇게 선언하면 5개의 공간이 null로 채워진 배열이 생성된다.  
 <> 안에는 배열에 할당할 자료형을 지정해주면 된다. 이를 제너릭이라고 한다  
 	
 배열에 값을 할당하거나 사용하려면 다른 언어들처럼 배열이름[index] 후 할당하거나 참조할 수 있다.   
-intArr[0] = 12  
+    intArr[0] = 12  
 배열은 한번 크기를 지정하면 변경할 수 없다는 단점이 있지만  
 한번 선언 빠른 입출력이 가능하다는 장점이 있다.  
  
@@ -106,8 +106,8 @@ intArr[0] = 12
 타입 추론(type inference)  
 : 변수나 함수들을 선언할 때나 연산할때 자료형을 코드에 명시하지 않아도 코틀린이 자료형을 추론해준다.  
   
-val stringValue(: String) = “문자열을 할당해볼까요?”  
-var intArr(: Array<Int>) = arrayOf(1,2,3,4,5)  
+    val stringValue(: String) = “문자열을 할당해볼까요?”  
+    var intArr(: Array<Int>) = arrayOf(1,2,3,4,5)  
 처럼 자료형을 생략할 수 있다.  
 
 변수가 선언될때 할당된 값의 형태로 해당 변수가 어떤 변수가 어떤 자료형을 가지는지 추론이 가능하기 때문에 이가 가능하다.  
@@ -115,12 +115,12 @@ var intArr(: Array<Int>) = arrayOf(1,2,3,4,5)
 기본 자료형도 선언시 값을 할당만 해준다면 대부분 자료형을 명시할 필요가 없다.  
 자료형 없이 값을 할당한다면 어떠한 자료형으로 선언될까??  
 
-var a = 1234 // Int  
-var b = 1234L // Long  
-var c = 12.45 // Double  
-var d = 12.45f // Float  
-var g = true // boolean  
-var h = ‘c’ // char  
+    var a = 1234 // Int  
+    var b = 1234L // Long  
+    var c = 12.45 // Double  
+    var d = 12.45f // Float  
+    var g = true // boolean  
+    var h = ‘c’ // char  
   
 반드시 특별한 자료형이 아니라면 코틀린의 타입 추론을 이용하여 코드량을 줄일 수 있다.  
   
@@ -129,18 +129,18 @@ var h = ‘c’ // char
 main(), println() 등 많은 함수들이있다.  
 코틀린에서 함수는 어디에나 둘수 있다.  
 함수는 fun으로 시작한다.  
-fun main(){  
-	println(add(5,6,7))  
-}  
+    fun main(){  
+    	println(add(5,6,7))  
+    }  
   
-fun add(a:Int, b: Int, c: Int): Int{// 반환형은 함수 맨 뒤에 선언한다. 반환값이 없으면 생략가능  
-	return a+b+c  
-}  
+    fun add(a:Int, b: Int, c: Int): Int{// 반환형은 함수 맨 뒤에 선언한다. 반환값이 없으면 생략가능  
+	    return a+b+c  
+    }  
   
 단일 표현식 함수(single-expression function)  
   
 방금 만든 add함수를 마치 변수에 결과값에 할당하듯  
-fun add(a: Int, b: Int, c: Int) = a+b+c  
+    fun add(a: Int, b: Int, c: Int) = a+b+c  
 처럼 만들 수 있다.  
 또한 단일 표현식 함수에서 반환형의 타입 추론이 가능해서 반환형을 생략할 수 있다.  
   
@@ -150,42 +150,42 @@ fun add(a: Int, b: Int, c: Int) = a+b+c
 ## 5. 조건문과 비교연산자
 if 만약 ~ 한다면 if문에 주어진 값이 참이라면 따라오는 구문을 실행하는 기능이다.  
   
-fun main(){  
-	var a = 7  
-  
-	if(a > 10){  
-	println(“참”)  
-	}   
-}  
+    fun main(){  
+	    var a = 7  
+      
+	    if(a > 10){  
+	    println(“참”)  
+	    }   
+    }  
   
 위 코드는 아무것도 실행되지 않는다.  
   
-fun main(){  
-	var a = 7  
-  
-	if(a > 10){  
-		println(“참”)  
-	} else {  
-		println(“거짓”)  
-	}  
-}  
+    fun main(){  
+	    var a = 7  
+      
+	    if(a > 10){  
+		    println(“참”)  
+	    } else {  
+		    println(“거짓”)  
+	    }  
+    }  
 예외구문의 처리를 위한 방법으로 if문 뒤에 else를 붙여서 실행 구문을 넣어주면 된다.  
 조건문을 처리할 수 있는 연산자는  
 <, <= >, >=, !=, == 등이 있다.  
 is 연산자도 있는데 이는 자료형이 맞는지 확인하는 연산자이다. 형변환도 시켜준다.  
-ex ) a is Int  
+    a is Int  
 
 When  
 다른 언어에서의 Switch 문과 비슷한 함수이다.  
   
-fun doWhen(a: Any){  
-	when(a){  
-		1 -> println(“정수 1입니다.”)  
-		“DiMo” -> println(“디모의 코틀린 강좌입니다..”)  
-		is Long -> println(“Long 타입입니다.”)  
+    fun doWhen(a: Any){  
+	    when(a){  
+	    	1 -> println(“정수 1입니다.”)  
+	    	“DiMo” -> println(“디모의 코틀린 강좌입니다..”)  
+	    	is Long -> println(“Long 타입입니다.”)  
 		!is String -> println(“String 타입이 아닙니다”)  
 		else -> println(“어떤 조건도 만족하지 않습니다.”)  
-}  
+    }  
   
 여기서 Any 자료형은 모든 자료형을 호환할 수 있는 코틀린의 최상위 자료형이다.  
 등호나 부등호의 사용은 불가능하다!!  
@@ -213,12 +213,12 @@ fun doWen(a: Any){
   
 조건형 반복문은 while과 dowhile이 있다.  
   
-fun main(){  
-	var a = 0  
-	while(a<5){  
-		println(a++)  
-	}  
-}  
+    fun main(){  
+	    var a = 0  
+	    while(a<5){  
+	    	println(a++)  
+    	}  
+    }  
 
 a++에서 증가 연산자인 ++을 볼 수 있는데 이는 변수의 값을 ‘1’ 증가시켜주는 역할을 한다.  
 감소 연산자도 존재하는데(--) 이는 증가연산자와 반대로 변수의 값을 ‘1’ 감소시켜주는 역할을 한다. 이 두 개를 통칭하여 증감연산자라고 한다.   
@@ -233,11 +233,11 @@ while에 의해 조건을 체크하여 반복한다는 점은 같지만 최초 �
 범위형 반복문에는 for가 있다.  
 for의 사용법은 고전적인 언어들과 사뭇 다르다.  
   
-fun main(){  
-	for(i in 0..9){  
-		print(i)	  
-	}  
-}  
+    fun main(){  
+	    for(i in 0..9){  
+	    	    print(i)	  
+	    }  
+    }  
 
 for 문을 쓰고 index로 사용할 변수를 적는다. 그 뒤에 in 0..9 를 적으면 0에서 9까지 반복이 되며 이 수들이 i에 할당된다.  
   
