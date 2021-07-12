@@ -37,15 +37,16 @@ Local variable(로컬변수) : Scope내에 선언된 변수
 변수에 값을 할당하는 것은 반드시 선언시에 할 필요는 없다.  
 변수를 참조하여 사용하기 전까지만 할당하면 된다.  
 
-```{.kotlin}
+```{.no-highlight}
     var a: Int  
     a = 123
 ```
     
 그러나 프로그램에 따라 변수에 값이 할당되지 않았음을 하나의 정보로 사용하는 경우도 있다. 이런 경우 변수형 뒤에 ?를 붙이면 null을 혀용하는 nullable 변수로 선언할 수 있다.  
 
-    var a: Int? = null  
-
+```{.no-highlight}
+	var a: Int? = null  
+```
 nullable 변수는 값이 null인 상태로 연산할시 null pointer exception이 발생할 수 있으므로 꼭 필요한 경우에만 사용하는 것이 좋다.  
   
 기본자료형(primitive type)  
