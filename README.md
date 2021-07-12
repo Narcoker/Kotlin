@@ -381,3 +381,152 @@ true
 false  
 true   
 ```
+
+## 클래스의 기본 구조
+클래스는 '값'과 그 값을 사용하는 '기능'들을 묶어 놓은 것이다.  
+클래스틑 고유의 특징값인 `속성`과 기능을 구현하는 `함수`로 이루어져있다.  
+```{.no-highlight}
+fun main() {
+
+}
+
+class Person (var name:String, val birthYear: Int)
+```
+  
+함수 없이 속성만 갖춘 클래스는 이것만으로 구현이 완료될 수 있다.  
+  
+인스턴스(instance)  
+클래스를 이용해서 만들어내는 서로 다른 속성의 객체를 지칭하는 용어이다.  
+
+```{.no-highlight}
+fun main() {
+	 	
+	var a = Person("박보영", 1990)
+	var b = Person("전정국", 1997)
+	var c = Person("장원영", 2004)
+	
+	println("안녕하세요, ${a.birthYear}년생 ${a.name}입니다.")
+
+}
+
+class Person (var name:String, val birthYear: Int)
+```
+
+```{.no-highlight}
+안녕하세요, 1990년생 박보영입니다.
+```
+<변수명.속성>의 형식을 이용해서 해당 클래스의 속성 값을 사용할 수 있다.  
+  
+자주 사용하는 기능은 클래스 내에 다음과 같이 함수로 넣는다.  
+```{.no-highlight}
+fun main() {
+	 	
+	var a = Person("박보영", 1990)
+	var b = Person("전정국", 1997)
+	var c = Person("장원영", 2004)
+	
+	a.introduce()
+	b.introduce()
+	c.introduce()
+
+}
+
+class Person (var name:String, val birthYear: Int){
+	fun introduce(){
+		println("안녕하세요, ${a.birthYear}년생 ${a.name}입니다.")
+	}
+}
+```
+
+```{.no-highlight}
+안녕하세요, 1990년생 박보영입니다.
+안녕하세요, 1997년생 전정국입니다.
+안녕하세요, 2004년생 장원영입니다.
+```
+  
+코틀린은 객체지향 언어를 기반으로 함수형 언어의 장점을 흡수한 실용적인 언어이다.  
+
+## 클래스의 생성자
+```{.no-highlight}
+class Person(var name: String, val birthYear: Int)
+```
+에서 name과, birthYear이 생성자인데, 이것은 클래스의 '속성'들을 선언함과 동시에 '생성자' 역시 선언하는 방법이다.
+
+생성자(constructor)  
+새로운 인스턴스를 만들기 위해 호출하는 특수한 함수이다.  
+인스턴스의 속성을 초기화하고 생성시 구문을 수행한다.  
+  
+생성시 구문을 수행하는 함수로 init()이 있다. 
+init()은 패러미터나 반환형이 없는 특수한 함수다.  
+생성자를 통해 인스턴스가 만들어 질 때 호출되는 함수이다.
+
+```{.no-highlight}
+fun main() {
+	var a = Person("박보영", 1990)
+	var b = Person("전정국", 1997)
+	var c = Person("장원영", 2004)
+}
+
+class Person (var name: String, val birthYear: Innt){
+	init {
+		println("$(this.birthYear}년생 ${this.name}님이 생성되었습니다.")
+	}
+}
+
+이때 this는 인스턴스 자신의 속성이나 함수를 호출하기 위해 클래스 내부에서 사용되는 키워드이다.
+```
+```{.no-highlight}
+[출력]
+1990년생 박보영이 생성되었습니다.
+1997년생 전정국이 생성되었습니다.
+2004년생 장원영이 생성되었습니다.
+```
+  
+생성자를 사용할 때 항상 모든 속성을 수동으로 초기화하는 것이 비효율적인 경우도 있다.  
+만약 100명의 사람을 생성하려고하는데 90명이 1997생이면 1997을 매번 입력해야한다.  
+  
+이때는 클래스를 만들때 기본으로 선언되는 `기본 생성자` 외에   
+필요에 따라 추가적으로 선언 가능한 `보조 생성자` 라는 것이 존재한다.
+  
+보조 생성자(secondary constructor)  
+기본 생성자와 다른 형태의 생성자를 제공하여 인스턴스 생성시 편의를 제공하거나  
+추가적인 구문을 수행하는 기능을 제공하는 역할을 한다.  
+  
+```{.no-highlight}
+fun main() {
+	var a = Person("박보영", 1990)
+	var b = Person("전정국", 1997)
+	var c = Person("장원영", 2004)
+	
+	var d = Person("이루다")
+	var e = Person("차은우")
+	var f = Person("류수정")
+}
+
+class Person (var name: String, val birthYear: Innt){
+	init {
+		println("$(this.birthYear}년생 ${this.name}님이 생성되었습니다.")
+	}
+
+	constructor(name:String) : this(name, 1997) {
+		println("보조 생성자가 사용되었습니다.")
+	}
+}
+```
+```{.no-highlight}
+[출력]
+1990년생 박보영님이 생성되었습니다.
+1997년생 전정국님이 생성되었습니다.
+2004년생 장원영님이 생성되었습니다.
+1997년생 이루다님이 생성되었습니다. 
+보조 생성자가 사용되었습니다.
+1997년생 차은우님이 생성되었습니다.
+보조 생성자가 사용되었습니다.
+1997년생 류수정님이 생성되었습니다.
+보조 생성자가 사용되었습니다.
+```
+보조 생성자를 만들 때는 반드시 기본 생성자를 통해 속성을 초기화해야한다.  
+보조 생성자가 기본생성자를 호출하려면 뒤에 콜론(:)을 붙인 후  this라는 키워드를 사용하고  
+기본생성자가 필요로하는 파라미터를 괄호한에 넣으면 된다.  
+여기서 이름은 받은 그대로 넘겨주고 년도는 1997년으로 고정하여 초기화한다.  
+
