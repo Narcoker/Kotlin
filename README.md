@@ -9,78 +9,72 @@
 안드로이드 스튜디오, 인텔리제이가 일반적이다. 
 
 ## 2. 변수와 자료형
-주석
-1. //주석 : 한줄짜리 주석
-2. /*주석 */ : 여러줄 주석
+주석  
+1. //주석 : 한줄짜리 주석  
+2. /*주석 */ : 여러줄 주석  
+  
+코틀린은 자바와 다르게 구문이 끝나는 부분에서 세미콜론을 붙이지 않아도 된다.  
+규칙만 지키면 구문이 끝나는지 언어 차원에서 판단한다.  
+  
+파스칼 표기법  
+: 클래스 이름을 표기하는 방법으로 모든 단어는 대문자로 시작한다.  
+ClassName  
+  
+카멜 표기법  
+: 함수나 변수 이름을 표기하는 방법으로 첫단어를 제외한 모든 단어는 대문자로 시작한다.  
+functionName  
+  
+변수 선언  
+var : 언제든지 읽기 쓰기가 가능하다.  
+val : 선언시에만 초기화 가능하다 중간에 값을 변경할 수 없다.  
+런타임시 변경되면안되는 변수는 val로 선언하는것이 좋다.  
+  
+변수 호칭  
+Property(속성) : 클래스에 선언된 변수  
+Local variable(로컬변수) : Scope내에 선언된 변수  
+  
+코틀린은 기본 변수에서 null을 허용하지 않으며 초기화되지 않은 변수를 사용하면 문법에러를 발생시켜 의도치않은 동작이나 null pointer exception등을 원천적으로 차단해준다.  
+변수에 값을 할당하는 것은 반드시 선언시에 할 필요는 없다.  
+변수를 참조하여 사용하기 전까지만 할당하면 된다.  
+ex)  
+var a: Int  
+a = 123  
 
-코틀린은 자바와 다르게 구문이 끝나는 부분에서 세미콜론을 붙이지 않아도 된다.
-규칙만 지키면 구문이 끝나는지 언어 차원에서 판단한다.
+그러나 프로그램에 따라 변수에 값이 할당되지 않았음을 하나의 정보로 사용하는 경우도 있다. 이런 경우 변수형 뒤에 ?를 붙이면 null을 혀용하는 nullable 변수로 선언할 수 있다.  
+ex)  
+var a: Int? = null  
 
-파스칼 표기법
-: 클래스 이름을 표기하는 방법으로 모든 단어는 대문자로 시작한다.
-ClassName
-
- 카멜 표기법
-: 함수나 변수 이름을 표기하는 방법으로 첫단어를 제외한 모든 단어는 대문자로 시작한다.
-functionName
-
-변수 선언
-var : 언제든지 읽기 쓰기가 가능하다.
-val : 선언시에만 초기화 가능하다 중간에 값을 변경할 수 없다.
-런타임시 변경되면안되는 변수는 val로 선언하는것이 좋다.
-
-변수 호칭
-Property(속성) : 클래스에 선언된 변수
-Local variable(로컬변수) : Scope내에 선언된 변수
-
-코틀린은 기본 변수에서 null을 허용하지 않으며 초기화되지 않은 변수를 사용하면 문법에러를 발생시켜 의도치않은 동작이나 null pointer exception등을 원천적으로 차단해준다.
-변수에 값을 할당하는 것은 반드시 선언시에 할 필요는 없다.
-변수를 참조하여 사용하기 전까지만 할당하면 된다.
-ex)
-var a: Int
-a = 123
-
-그러나 프로그램에 따라 변수에 값이 할당되지 않았음을 하나의 정보로 사용하는 경우도 있다. 이런 경우 변수형 뒤에 ?를 붙이면 null을 혀용하는 nullable 변수로 선언할 수 있다.
-ex)
-var a: Int? = null
-
-nullable 변수는 값이 null인 상태로 연산할시 null pointer exception이 발생할 수 있으므로 꼭 필요한 경우에만 사용하는 것이 좋다.
-
-
-기본자료형(primitive type)
+nullable 변수는 값이 null인 상태로 연산할시 null pointer exception이 발생할 수 있으므로 꼭 필요한 경우에만 사용하는 것이 좋다.  
+  
+기본자료형(primitive type)  
 자바와의 호환을 위해 자바와 거의 동일하다. 
 
-
-사용하고자하는 숫자의 크기만큼 선택해서 사용한다.
-
-
-코틀린은 8진수의 표기는 지원하지 않는다.
-실수표기법
-var doubleValue: Double = 123.5
-var doubleValueWithExp: Double = 123.5e10
-var floatValue: Float = 123.5f
-
-기본적으로 Double형을 사용하며 필요시 지수표기법을 추가해줘도 된다.
-Float형인 경우 소문자 또는 대문자 f를 붙여줘야한다.
-
-문자형
-var charValue: Char = “a’
-
-코틀린은 유니코드 인코딩 중에 한 방식인 UTF-16 BE로 관리해서 한 문자당 2byte를 차지한다.
-
-문자열
-var stringValue = “one line string test” // 한줄의 문자열 표기법
-val multiLineStringValue = “”“ multiline
-string
-test“”“ //두 줄 이상의 문자열 표기법
-
-논리형
-var booleanValue: Boolean = true
-
-
+코틀린은 8진수의 표기는 지원하지 않는다.  
+실수표기법  
+var doubleValue: Double = 123.5  
+var doubleValueWithExp: Double = 123.5e10  
+var floatValue: Float = 123.5f  
+  
+기본적으로 Double형을 사용하며 필요시 지수표기법을 추가해줘도 된다.  
+Float형인 경우 소문자 또는 대문자 f를 붙여줘야한다.  
+  
+문자형  
+var charValue: Char = “a’  
+  
+코틀린은 유니코드 인코딩 중에 한 방식인 UTF-16 BE로 관리해서 한 문자당 2byte를 차지한다.  
+  
+문자열  
+var stringValue = “one line string test” // 한줄의 문자열 표기법  
+val multiLineStringValue = “”“ multiline  
+string  
+test“”“ //두 줄 이상의 문자열 표기법  
+  
+논리형  
+var booleanValue: Boolean = true  
+  
 ## 3. 형변환과 배열
-형변환(type casting)
-하나의 변수에 지정된 자료형을 호환되는 다른 자료형으로 변환하는 기능이다.  
+형변환(type casting)  
+하나의 변수에 지정된 자료형을 호환되는 다른 자료형으로 변환하는 기능이다.   
   
 기본자료형들은 자료형 간의 형변환을 지원하기 위해 형변환 함수들을 제공하고 있다.  
 toByte(), toShort(), toInt(), toLong(), toFloat(), toDouble(), toChar()등이 있는데  
