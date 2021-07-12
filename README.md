@@ -327,7 +327,8 @@ fun main(){
 코틀린은 다른언어와 다르게 다중 반복문의 흐름제어도 가능하다.  
 외부 반복문에 레이블 이름과 @ 기호를 달고 break문에서 @ 과 레이블 이름을 달아주면  
 레이블이 달린 반복문을 기준으로 즉시 break를 시켜준다. continue도 마찬가지이다.  
- 
+
+```{.no-highlight}
 fun main() {  
 	loop@for(i in 1..10) {  
 		for(j in 1..10) {  
@@ -336,6 +337,7 @@ fun main() {
 		}  
 	}  
 }  
+```
 ```{.no-highlight}
 [출력]  
 i : 1, j : 1  
