@@ -249,33 +249,37 @@ while에 의해 조건을 체크하여 반복한다는 점은 같지만 최초 �
   
 범위형 반복문에는 for가 있다.  
 for의 사용법은 고전적인 언어들과 사뭇 다르다.  
-  
-    fun main(){  
-	    for(i in 0..9){  
-	    	    print(i)	  
-	    }  
-    }  
+
+```{.no-highlight}
+fun main(){  
+	for(i in 0..9){ 
+		print(i)	  
+	}  
+}  
+```
 
 for 문을 쓰고 index로 사용할 변수를 적는다. 그 뒤에 in 0..9 를 적으면 0에서 9까지 반복이 되며 이 수들이 i에 할당된다.  
   
 증가값을 1이 아닌 다른 수로 지정할 경우 옵션으로 step을 붙여주면된다.  
-  
+```{.no-highlight}  
 fun main(){  
 	for(i in 0..9 step 3){  
 		print(i)	  
 	}  
 }  
+```
 ```{.no-highlight}
 [출력]  
 0369  
 ```  
 감소시키는 경우 .. 이 아닌 downTo 를 사용한다.  
-  
+```{.no-highlight}  
 fun main(){  
 	for(i in 9 downTo 0){  
 		print(i)  
 	}  
 }  
+```
 ```{.no-highlight}
 [출력]  
 9876543210   
@@ -284,11 +288,13 @@ fun main(){
   
 for의 범위로 char형을 사용할 수 도 있다.  
   
+```{.no-highlight}
 fun main(){  
 	for(i in ‘a’ .. ‘e’) {  
 		print(i)  
 	}  
 }  
+```
 ```{.no-highlight}
 [출력]  
 abced  
@@ -301,12 +307,14 @@ return
 break  
 반복문 내애 구문이 실행이 되는 도중, 반복문을 중단하고 다음 구문으로 넘어가는 역할을 한다.  
 
+```{.no-highlight}
 fun main(){  
 	for( i in 1.. 10){  
 		if(i==3) break  
 		print(i)  
 	}  
 }  
+```
 ```{.no-highlight}
 [출력]  
 12  
@@ -314,12 +322,14 @@ fun main(){
 continue  
 다음 반복 조건으로 즉시 넘어가는 역할을 한다.  
   
+```{.no-highlight}
 fun main(){  
 	for( i in 1.. 10){  
 		if(i==3) continue  
 		print(i)  
 	}  
-}  
+}
+```
 ```{.no-highlight}
 [출력]  
 1245678910 
