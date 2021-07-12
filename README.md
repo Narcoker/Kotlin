@@ -53,27 +53,32 @@ nullable 변수는 값이 null인 상태로 연산할시 null pointer exception�
 자바와의 호환을 위해 자바와 거의 동일하다. 
 
 코틀린은 8진수의 표기는 지원하지 않는다.  
-실수표기법  
-    var doubleValue: Double = 123.5  
-    var doubleValueWithExp: Double = 123.5e10  
-    var floatValue: Float = 123.5f  
-  
+실수표기법
+```{.no-highlight}
+var doubleValue: Double = 123.5  
+var doubleValueWithExp: Double = 123.5e10  
+var floatValue: Float = 123.5f  
+```  
 기본적으로 Double형을 사용하며 필요시 지수표기법을 추가해줘도 된다.  
 Float형인 경우 소문자 또는 대문자 f를 붙여줘야한다.  
   
-문자형  
-    var charValue: Char = “a’  
-  
+문자형
+```{.no-highlight}
+var charValue: Char = “a’  
+```  
 코틀린은 유니코드 인코딩 중에 한 방식인 UTF-16 BE로 관리해서 한 문자당 2byte를 차지한다.  
   
 문자열  
-    var stringValue = “one line string test” // 한줄의 문자열 표기법  
-    val multiLineStringValue = “”“ multiline  
-    string  
-    test“”“ //두 줄 이상의 문자열 표기법  
-  
-논리형  
-    var booleanValue: Boolean = true  
+```{.no-highlight}
+var stringValue = “one line string test” // 한줄의 문자열 표기법  
+val multiLineStringValue = “”“ multiline  
+string  
+test“”“ //두 줄 이상의 문자열 표기법  
+```
+논리형
+```{.no-highlight}
+var booleanValue: Boolean = true  
+```  
   
 ## 3. 형변환과 배열
 형변환(type casting)  
@@ -82,24 +87,30 @@ Float형인 경우 소문자 또는 대문자 f를 붙여줘야한다.
 기본자료형들은 자료형 간의 형변환을 지원하기 위해 형변환 함수들을 제공하고 있다.  
 toByte(), toShort(), toInt(), toLong(), toFloat(), toDouble(), toChar()등이 있는데  
 to<자료형>()의 형태이다.  
-  
-    var a: Int = 54321
-    var b: Long = a.toLong()
-
+```{.no-highlight}  
+var a: Int = 54321
+var b: Long = a.toLong()
+```
 전문용어로는 명시적 형변환이라고 한다. 코틀린은 형변환시 발생할 수 있는 오류를 막기 위해 다른 언어들이 지원하는 암시적 형변환은 지원하지 않는다.  
 명시적 형변환은 변환될 자료형을 개발자가 직접 지정하는 것이고  
 암싲거 형변환은 변수를 할당시 자료형을 지정하지 않아도 자동으로 현 변환이 된다.  
   
 배열  
-    var intArr = arrayOf(1, 2, 3, 4, 5)  
+```{.no-highlight}
+var intArr = arrayOf(1, 2, 3, 4, 5)  
+```
 
 만약 특정한 크기의 공간을 가지는 비어있는 배열을 만들고 싶으면 다음과 같이 선언한다.  
-    var nullArr = arrayOfNulls<Int>(5)  
+```{.no-highlight}
+var nullArr = arrayOfNulls<Int>(5)
+```
 이렇게 선언하면 5개의 공간이 null로 채워진 배열이 생성된다.  
 <> 안에는 배열에 할당할 자료형을 지정해주면 된다. 이를 제너릭이라고 한다  
 	
 배열에 값을 할당하거나 사용하려면 다른 언어들처럼 배열이름[index] 후 할당하거나 참조할 수 있다.   
-    intArr[0] = 12  
+```{.no-highlight}
+intArr[0] = 12  
+```
 배열은 한번 크기를 지정하면 변경할 수 없다는 단점이 있지만  
 한번 선언 빠른 입출력이 가능하다는 장점이 있다.  
  
@@ -109,8 +120,11 @@ to<자료형>()의 형태이다.
 타입 추론(type inference)  
 : 변수나 함수들을 선언할 때나 연산할때 자료형을 코드에 명시하지 않아도 코틀린이 자료형을 추론해준다.  
   
-    val stringValue(: String) = “문자열을 할당해볼까요?”  
-    var intArr(: Array<Int>) = arrayOf(1,2,3,4,5)  
+```{.no-highlight} 
+val stringValue(: String) = “문자열을 할당해볼까요?”  
+var intArr(: Array<Int>) = arrayOf(1,2,3,4,5)  
+```
+  
 처럼 자료형을 생략할 수 있다.  
 
 변수가 선언될때 할당된 값의 형태로 해당 변수가 어떤 변수가 어떤 자료형을 가지는지 추론이 가능하기 때문에 이가 가능하다.  
@@ -251,9 +265,10 @@ fun main(){
 		print(i)	  
 	}  
 }  
+```{.no-highlight}
 [출력]  
 0369  
-  
+```  
 감소시키는 경우 .. 이 아닌 downTo 를 사용한다.  
   
 fun main(){  
@@ -261,9 +276,10 @@ fun main(){
 		print(i)  
 	}  
 }  
+```{.no-highlight}
 [출력]  
-9876543210  
-  
+9876543210   
+```
 감소 역시 step을 붙이면 감소값을 지정할 수 있다.  
   
 for의 범위로 char형을 사용할 수 도 있다.  
@@ -273,8 +289,10 @@ fun main(){
 		print(i)  
 	}  
 }  
+```{.no-highlight}
 [출력]  
 abced  
+```
    
 ## 7. 흐름제어와 논리연산자  
 return  
@@ -289,9 +307,10 @@ fun main(){
 		print(i)  
 	}  
 }  
+```{.no-highlight}
 [출력]  
 12  
-
+```
 continue  
 다음 반복 조건으로 즉시 넘어가는 역할을 한다.  
   
@@ -301,9 +320,10 @@ fun main(){
 		print(i)  
 	}  
 }  
+```{.no-highlight}
 [출력]  
-1245678910  
-  
+1245678910 
+```
 코틀린은 다른언어와 다르게 다중 반복문의 흐름제어도 가능하다.  
 외부 반복문에 레이블 이름과 @ 기호를 달고 break문에서 @ 과 레이블 이름을 달아주면  
 레이블이 달린 반복문을 기준으로 즉시 break를 시켜준다. continue도 마찬가지이다.  
@@ -311,14 +331,16 @@ fun main(){
 fun main() {  
 	loop@for(i in 1..10) {  
 		for(j in 1..10) {  
-			if(i == 1 && j == 2) break@loop  
+			if(i == 1 && j == 2) break@loop  Cancel changes
 			println(“i : $i, j : $j”)  
 		}  
 	}  
 }  
+```{.no-highlight}
 [출력]  
 i : 1, j : 1  
-  
+```
+
 따음표 안에서 변수를 출력할때는 변수이름 앞에 $를 붙여주면 변수의 값이 출력된다.  
   
 논리연산자(logical operators)  
@@ -326,15 +348,18 @@ i : 1, j : 1
 and 연산 : &&  
 or 연산 : ||  
 not 연산 : !  
-
+```{.no-highlight}
 fun main(){    
 	println(true && false)  
 	println(true || false)  
 	println(!true)  
 	println(!false)  
 }   
+```
+```{.no-highlight}
 [출력]  
 false  
 true  
 false  
 true   
+```
