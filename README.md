@@ -382,7 +382,7 @@ false
 true   
 ```
 
-## 클래스의 기본 구조
+## 8. 클래스의 기본 구조
 클래스는 '값'과 그 값을 사용하는 '기능'들을 묶어 놓은 것이다.  
 클래스틑 고유의 특징값인 `속성`과 기능을 구현하는 `함수`로 이루어져있다.  
 ```{.no-highlight}
@@ -446,7 +446,7 @@ class Person (var name:String, val birthYear: Int){
   
 코틀린은 객체지향 언어를 기반으로 함수형 언어의 장점을 흡수한 실용적인 언어이다.  
 
-## 클래스의 생성자
+## 9. 클래스의 생성자
 ```{.no-highlight}
 class Person(var name: String, val birthYear: Int)
 ```
@@ -477,9 +477,9 @@ class Person (var name: String, val birthYear: Innt){
 ```
 ```{.no-highlight}
 [출력]
-1990년생 박보영이 생성되었습니다.
-1997년생 전정국이 생성되었습니다.
-2004년생 장원영이 생성되었습니다.
+1990년생 박보영님이 생성되었습니다.
+1997년생 전정국님이 생성되었습니다.
+2004년생 장원영님이 생성되었습니다.
 ```
   
 생성자를 사용할 때 항상 모든 속성을 수동으로 초기화하는 것이 비효율적인 경우도 있다.  
@@ -530,3 +530,67 @@ class Person (var name: String, val birthYear: Innt){
 기본생성자가 필요로하는 파라미터를 괄호한에 넣으면 된다.  
 여기서 이름은 받은 그대로 넘겨주고 년도는 1997년으로 고정하여 초기화한다.  
 
+## 10. 클래스의 상속
+상속이 필요한 경우는 두가지가 있다.  
+이미존재하는 함수를 확장하여 새로운 속성이나 함수를 추가한 클래스를 만들때거나  
+여러개의 클래스가 있을때 공통점을 뽑아 코드관리를 편하게 할때이다.  
+  
+여기서 속성과 함수를 물려주는 쪽을 수퍼 클래스라 하고 받는 쪽을 서브 클래스라고 한다.
+
+```{.no-highlight}
+fun main(){
+	var a = Animal("별이", 5, "개")
+	var b = Dog("별이", 5)
+	
+	a.introduce()
+	b.introduce()
+	
+	b.bark()
+	
+	var c = Cat("루이", 1)
+	
+	var c = Cat("루이", 1)
+	
+	c.introduce()
+	c.meow()
+}
+
+open class Animal (var name:String, var age: Int, var type: String)
+{
+	fun introduce() {
+		println("저는 ${type} ${name}이고, ${age}살 입니다.")
+		// 클래스 자신의 속성임이 확실할 때는 this를 사용하지 않아도 됨.
+}
+
+class Dog (name: String, age: Int) : Animal (name, age, "개")
+{ // var, val등을 붙이면 속성으로 선언된다. 그러므로 이는 단순 파라미터 이다.
+	fun bark(){
+		println("멍멍")
+	}
+}
+
+class Cat (name: String, age: Int) : Animal (name, age, "고양이")
+{
+	fun meow() {
+		println("야옹야옹")
+}
+
+```
+
+```{.no-highlight}
+[출력]
+저는 개 별이이고, 5살 입니다.
+저는 개 별이이고, 5살 입니다.
+멍멍
+저는 고양이 루이이고, 1살 입니다.
+야옹야옹
+```
+코틀린은 상속금지가 기본값이다. 따라서 open을 사용해야하는데 이는 클래스가 상속될 수 있도록  
+클래스 선언시 붙여줄 수 있는 키워드이다.  
+  
+상속 클래스 선언시 주의할 점!!  
+서브 클래스는 수퍼 클래스에 존재하는 속성과 '같은 이름'의 속성을 가질 수 없다.  
+서브 클래스가 생성될때 반드시 수퍼클래스의 생성자까지 호출되어야 한다.  
+  
+상속은 클래스를 구조적으로 다룰 수 있게 해준다는 장점이 있지만  
+지나친 상속구조는 코드를 더 어렵게 만든다.  
